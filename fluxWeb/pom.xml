@@ -30,7 +30,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <mainClass>com.moses.boot.sample.SpringBootFluxMultiApplication</mainClass>
+                    <mainClass>com.moses.boot.persistence.SpringBootFluxMultiApplication</mainClass>
                 </configuration>
                 <executions>
                     <execution>

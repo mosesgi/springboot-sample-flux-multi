@@ -1,4 +1,4 @@
-package com.moses.boot.sample.repository;
+package com.moses.boot.persistence.repository;
 
 import com.moses.boot.sample.model.User;
 import org.springframework.stereotype.Repository;
@@ -9,7 +9,7 @@ import java.util.concurrent.ConcurrentMap;
 import java.util.concurrent.atomic.AtomicInteger;
 
 @Repository
-public class UserRepository {
+public class UserMemoryRepository {
     private static ConcurrentMap<Integer, User> repository = new ConcurrentHashMap<>();
     private static AtomicInteger idGenerator = new AtomicInteger();
 

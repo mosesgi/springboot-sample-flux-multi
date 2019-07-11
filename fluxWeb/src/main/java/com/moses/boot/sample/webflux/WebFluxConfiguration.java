@@ -1,7 +1,7 @@
-package com.moses.boot.sample.config;
+package com.moses.boot.sample.webflux;
 
 import com.moses.boot.sample.model.User;
-import com.moses.boot.sample.repository.UserRepository;
+import com.moses.boot.persistence.repository.UserMemoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -17,12 +17,17 @@ import java.util.Collection;
 public class WebFluxConfiguration {
 
     @Bean
+    public RouterFunction<ServerResponse> saveUser(UserHandler userHandler){
+        return RouterFunctions.route(RequestPredicates.POST("/jdbc/user/save"), userHandler::save);
+    }
+
+    @Bean
     @Autowired
-    public RouterFunction<ServerResponse> routerFunctionUsers(UserRepository userRepository){
-        Collection<User> users = userRepository.getAll();
+    public RouterFunction<ServerResponse> routerFunctionUsers(UserMemoryRepository userMemoryRepository){
+        Collection<User> users = userMemoryRepository.getAll();
         Flux<User> userFlux = Flux.fromIterable(users);
 
-        return RouterFunctions.route(RequestPredicates.path("/users"),
+        return RouterFunctions.route(RequestPredicates.path("/memory/users"),
                 serverRequest -> ServerResponse.ok().body(userFlux, User.class));
     }
 }

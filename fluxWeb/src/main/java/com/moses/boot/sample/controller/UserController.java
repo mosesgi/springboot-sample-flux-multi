@@ -1,7 +1,7 @@
 package com.moses.boot.sample.controller;
 
 import com.moses.boot.sample.model.User;
-import com.moses.boot.sample.repository.UserRepository;
+import com.moses.boot.persistence.repository.UserMemoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.Assert;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -13,16 +13,16 @@ import javax.validation.Valid;
 @RestController
 public class UserController {
     @Autowired
-    private UserRepository userRepository;
+    private UserMemoryRepository userMemoryRepository;
 
-    @PostMapping("/user/save")
+    @PostMapping("/user/memory/save")
     public boolean saveUser(String name){
         User u = new User();
         u.setName(name);
-        return userRepository.saveUser(u);
+        return userMemoryRepository.saveUser(u);
     }
 
-    @PostMapping("/user/saveuser")
+    @PostMapping("/user/memory/validSave")
     public User save(@Valid @RequestBody User user){
         return user;
     }

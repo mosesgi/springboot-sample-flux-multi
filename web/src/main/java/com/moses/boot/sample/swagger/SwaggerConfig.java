@@ -19,7 +19,7 @@ public class SwaggerConfig {
         return new Docket(DocumentationType.SWAGGER_2)
                 .apiInfo(apiInfo())
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.moses.boot.sample"))// 指定扫描包下面的注解
+                .apis(RequestHandlerSelectors.basePackage("com.moses.boot.persistence"))// 指定扫描包下面的注解
                 .paths(PathSelectors.any())
                 .build();
     }
