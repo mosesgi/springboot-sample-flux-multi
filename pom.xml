@@ -7,6 +7,7 @@
         <module>web</module>
         <module>model</module>
         <module>persistence</module>
+        <module>fluxWeb</module>
     </modules>
     <groupId>com.moses.boot</groupId>
     <artifactId>spring-boot-flux-multi</artifactId>

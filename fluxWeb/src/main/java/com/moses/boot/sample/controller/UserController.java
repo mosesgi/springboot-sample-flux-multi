@@ -2,12 +2,8 @@ package com.moses.boot.sample.controller;
 
 import com.moses.boot.sample.model.User;
 import com.moses.boot.sample.repository.UserRepository;
-import io.swagger.annotations.ApiImplicitParam;
-import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.util.Assert;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -19,8 +15,6 @@ public class UserController {
     @Autowired
     private UserRepository userRepository;
 
-    @ApiOperation(value="保存新用户", notes="根据名字保存")
-    @ApiImplicitParam(name="name", value="用户名", required=true, dataType="String")
     @PostMapping("/user/save")
     public boolean saveUser(String name){
         User u = new User();

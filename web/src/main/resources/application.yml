@@ -1,4 +1,19 @@
+spring:
+  profiles:
+#    active: dev
+
 logging:
   level:
     root: INFO
-    org.springframework.web.bind.support: INFO
+    com.moses.boot.sample: debug
+
+employee:
+  name: Moses
+  id: 1001
+  info: ${employee.name}'s id is ${employee.id}
+
+random:
+  string: ${random.value}
+  number: ${random.int}
+  long: ${random.long}
+  b: ${random.int[1,20]}  #1-20的随机数
