@@ -1,0 +1,13 @@
+package com.moses.boot.sample;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class SpringBootWebMultiApplication {
+
+    public static void main(String[] args) {
+        SpringApplication.run(SpringBootWebMultiApplication.class, args);
+    }
+
+}
