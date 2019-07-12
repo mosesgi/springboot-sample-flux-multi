@@ -1,6 +1,8 @@
 spring:
   profiles:
     active: home
+  messages:
+    basename: messages/messages
 
 logging:
   level:
